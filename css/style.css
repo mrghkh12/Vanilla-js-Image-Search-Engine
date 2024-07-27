@@ -60,3 +60,16 @@
     font-size: 1.4rem;
     color: #8d8d8d;
 }
+
+
+.gallery-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery-section .image-container{
+    gap: 15px;
+    max-width: 15px;
+    margin-top: 40px;
+    columns: 5 340px;
+}
