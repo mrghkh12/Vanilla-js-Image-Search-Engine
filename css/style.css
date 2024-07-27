@@ -78,10 +78,36 @@
     list-style: none;
     margin-bottom: 14px;
     border-radius: 4px;
+    display: flex;
+    position: relative;
 }
 .gallery-section .image-container .img-card img{
     width: 100%;
 }
+
+.gallery-section .image-container .img-card .details{
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top , rgba(0,0,0,0.7) , transparent);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+.gallery-section .img-card .details .photoGrapher{
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.gallery-section .details .photoGrapher i{
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+.gallery-section .details .photoGrapher span{
+    font-size: 1.05rem;
+}
+
 
 .gallery-section .more-img-btn{
     outline: none;
