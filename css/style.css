@@ -69,7 +69,16 @@
 }
 .gallery-section .image-container{
     gap: 15px;
-    max-width: 15px;
+    max-width: 95%;
     margin-top: 40px;
     columns: 5 340px;
+}
+
+.gallery-section .image-container .img-card{
+    list-style: none;
+    margin-bottom: 14px;
+    border-radius: 4px;
+}
+.gallery-section .image-container .img-card img{
+    width: 100%;
 }
