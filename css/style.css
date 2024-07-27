@@ -82,6 +82,7 @@ input , button , i{
     border-radius: 4px;
     display: flex;
     position: relative;
+    overflow: hidden;
 }
 .gallery-section .image-container .img-card img{
     width: 100%;
@@ -89,13 +90,17 @@ input , button , i{
 
 .gallery-section .image-container .img-card .details{
     position: absolute;
-    bottom: 0;
+    bottom: -100px;
+    transition: 0.2s ease;
     background: linear-gradient(to top , rgba(0,0,0,0.7) , transparent);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
+}
+.gallery-section .img-card:hover .details{
+    bottom: 0;
 }
 .gallery-section .img-card .details .photoGrapher{
     color: #fff;
