@@ -7,3 +7,56 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.search-section{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search-section .search-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.search-section .content{
+    color: #fff;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+.search-section .content .title{
+    font-size: 2.65rem;
+    font-weight: 600;
+}
+.search-section .content .text{
+    font-size: 1.5rem;
+    margin-top: 8px;
+}
+
+.search-section .content .search-box{
+    height: 55px;
+    margin: 45px 0;
+    position: relative;
+}
+.search-section .content .search-box input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    padding-left: 55px;
+    border-radius: 5px;
+}
+.search-section .content .search-box i{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: #8d8d8d;
+}
