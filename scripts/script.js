@@ -10,6 +10,14 @@ const perPage = 15;
 let currentPage = 1;
 let searchTerm = null
 
+const downloadImg = imgURL =>{
+    fetch(imgURL).then(res => res.blob()).then(file => {
+        const dlElem = $.createElement('a')
+        dlElem.href = URL.createObjectURL(file)
+        dlElem.download = new Date().getTime()
+        dlElem.click()
+    }).catch(() => alert('Failed to download image!'))
+}
 
 const generateImgElement = (imgData) => {
     imgData.forEach(imgItem => {
@@ -22,7 +30,7 @@ const generateImgElement = (imgData) => {
                         <i class="uil uil-camera"></i>
                         <span>${imgItem.photographer}</span>
                     </div>
-                    <button class="dl-btn"><i class="uil uil-import"></i></button>
+                    <button class="dl-btn" onclick='downloadImg("${imgItem.src.large2x}")'><i class="uil uil-import"></i></button>
                 </div>
             </li>`
         )
