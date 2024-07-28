@@ -99,6 +99,7 @@ input , button , i{
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
+
 }
 .gallery-section .img-card:hover .details{
     bottom: 0;

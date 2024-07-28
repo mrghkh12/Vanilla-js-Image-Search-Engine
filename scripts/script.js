@@ -4,6 +4,8 @@ const imageContainer = $.querySelector('.image-container')
 const loadMoreBtn = $.querySelector('.more-img-btn')
 const searchInput = $.querySelector('.search-box input')
 const lightBoxElem = $.querySelector('.lightBox')
+const closeLightBoxBtn = lightBoxElem.querySelector('.uil-times')
+const dlLightBoxBtn = lightBoxElem.querySelector('.uil-import')
 
 const apiKey = '1JFcrBeutxzbXKbDXJacTLeidhb6FDb51Bi4I5Lw6D7NTgTj8p7kIxyR'
 
@@ -23,9 +25,13 @@ const downloadImg = imgURL =>{
 const showLightBox = (photographer , img) =>{
     lightBoxElem.querySelector('.photoGrapher span').innerHTML = photographer
     lightBoxElem.querySelector('.preview-img img').src = img
-
-
+    dlLightBoxBtn.setAttribute('data-imgURL' , img)
     lightBoxElem.classList.add('show')
+    $.body.style.overflow = 'hidden'
+}
+const hideLightBox = () => {
+    lightBoxElem.classList.remove('show')
+    $.body.style.overflow = 'auto'
 }
 
 const generateImgElement = (imgData) => {
@@ -77,4 +83,6 @@ const loadSearchImage = e => {
 
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
 loadMoreBtn.addEventListener('click' , loadMoreImage)
+closeLightBoxBtn.addEventListener('click' , hideLightBox)
+dlLightBoxBtn.addEventListener('click' , e => downloadImg(e.target.dataset.imgurl))
 searchInput.addEventListener('keyup' , loadSearchImage)
