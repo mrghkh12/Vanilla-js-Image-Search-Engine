@@ -1,6 +1,7 @@
 const $ = document
 
 const imageContainer = $.querySelector('.image-container')
+const loadMoreBtn = $.querySelector('.more-img-btn')
 
 const apiKey = '1JFcrBeutxzbXKbDXJacTLeidhb6FDb51Bi4I5Lw6D7NTgTj8p7kIxyR'
 
@@ -27,10 +28,20 @@ const generateImgElement = (imgData) => {
 }
 
 async function getImages(apiURL) {
+    loadMoreBtn.innerText = 'Loading...'
+    loadMoreBtn.classList.add('disabled')
     let response = await fetch(apiURL, { headers: { Authorization: apiKey } });
     let data = await response.json();
     generateImgElement(data.photos);
+    loadMoreBtn.innerText = 'Load More'
+    loadMoreBtn.classList.remove('disabled')
+}
+
+const loadMoreImage = () =>{
+    currentPage++
+    getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
 }
 
 
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
+loadMoreBtn.addEventListener('click' , loadMoreImage)
