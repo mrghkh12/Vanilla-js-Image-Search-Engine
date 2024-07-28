@@ -41,7 +41,9 @@ async function getImages(apiURL) {
 
 const loadMoreImage = () =>{
     currentPage++
-    getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
+    let apiURL = `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`
+    apiURL = searchTerm ? `https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}` : apiURL
+    getImages(apiURL)
 }
 
 const loadSearchImage = e => {
