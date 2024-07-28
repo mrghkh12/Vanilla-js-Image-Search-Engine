@@ -3,6 +3,7 @@ const $ = document
 const imageContainer = $.querySelector('.image-container')
 const loadMoreBtn = $.querySelector('.more-img-btn')
 const searchInput = $.querySelector('.search-box input')
+const lightBoxElem = $.querySelector('.lightBox')
 
 const apiKey = '1JFcrBeutxzbXKbDXJacTLeidhb6FDb51Bi4I5Lw6D7NTgTj8p7kIxyR'
 
@@ -19,10 +20,18 @@ const downloadImg = imgURL =>{
     }).catch(() => alert('Failed to download image!'))
 }
 
+const showLightBox = (photographer , img) =>{
+    lightBoxElem.querySelector('.photoGrapher span').innerHTML = photographer
+    lightBoxElem.querySelector('.preview-img img').src = img
+
+
+    lightBoxElem.classList.add('show')
+}
+
 const generateImgElement = (imgData) => {
     imgData.forEach(imgItem => {
         imageContainer.insertAdjacentHTML('beforeend' , 
-            `<li class="img-card">
+            `<li class="img-card" onclick="showLightBox('${imgItem.photographer}', '${imgItem.src.large2x}')">
                 <img src="${imgItem.src.large2x}">
 
                 <div class="details">
