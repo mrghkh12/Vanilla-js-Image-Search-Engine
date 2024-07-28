@@ -208,3 +208,18 @@ input , button , i{
     margin-left: 10px;
     background: #6c757d;
 }
+
+
+
+@media screen and (max-width: 680px){
+    .search-section{
+        padding: 0 10px;
+    }
+    .search-section .content .title {
+        font-size: 1.65rem;
+        padding-top: 50px;
+    }
+    .search-section .content .text {
+        font-size: 0.9rem;
+    }
+}
