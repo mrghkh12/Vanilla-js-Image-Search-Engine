@@ -30,13 +30,14 @@ const generateImgElement = (imgData) => {
 }
 
 async function getImages(apiURL) {
-    loadMoreBtn.innerText = 'Loading...'
-    loadMoreBtn.classList.add('disabled')
-    let response = await fetch(apiURL, { headers: { Authorization: apiKey } });
-    let data = await response.json();
-    generateImgElement(data.photos);
-    loadMoreBtn.innerText = 'Load More'
-    loadMoreBtn.classList.remove('disabled')
+        loadMoreBtn.innerText = 'Loading...'
+        loadMoreBtn.classList.add('disabled')
+        let response = await fetch(apiURL, { headers: { Authorization: apiKey } });
+        let data = await response.json();
+        if(data.photos.length > 0 ) generateImgElement(data.photos)
+            else alert('Failed to load images!')
+        loadMoreBtn.innerText = 'Load More'
+        loadMoreBtn.classList.remove('disabled')
 }
 
 const loadMoreImage = () =>{
@@ -47,6 +48,7 @@ const loadMoreImage = () =>{
 }
 
 const loadSearchImage = e => {
+    if(e.target.value.trim() === '') return searchTerm = null
     if(e.key === 'Enter'){
        currentPage = 1
        searchTerm = e.target.value
