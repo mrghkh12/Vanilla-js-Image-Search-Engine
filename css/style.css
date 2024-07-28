@@ -81,6 +81,7 @@ input , button , i{
     margin-bottom: 14px;
     border-radius: 4px;
     display: flex;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
 }
@@ -98,6 +99,7 @@ input , button , i{
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
+
 }
 .gallery-section .img-card:hover .details{
     bottom: 0;
@@ -131,7 +133,10 @@ input , button , i{
     padding: 12px 27px;
     background: #8a6cff;
 }
-
+.gallery-section .more-img-btn.disabled{
+    opacity: 0.6;
+    pointer-events: none;
+}
 
 .lightBox{
     position: fixed;
@@ -140,6 +145,9 @@ input , button , i{
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.65);
+}
+.lightBox.show{
+    display: block;
 }
 .lightBox .wrapper{
     position: absolute;
@@ -165,7 +173,6 @@ input , button , i{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 5px;
 }
 
 .lightBox .wrapper header{
