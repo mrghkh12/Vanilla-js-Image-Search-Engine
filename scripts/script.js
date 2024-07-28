@@ -45,7 +45,7 @@ const generateImgElement = (imgData) => {
                         <i class="uil uil-camera"></i>
                         <span>${imgItem.photographer}</span>
                     </div>
-                    <button class="dl-btn" onclick='downloadImg("${imgItem.src.large2x}")'><i class="uil uil-import"></i></button>
+                    <button class="dl-btn" onclick='downloadImg("${imgItem.src.large2x}");event.stopPropagation();'><i class="uil uil-import"></i></button>
                 </div>
             </li>`
         )
