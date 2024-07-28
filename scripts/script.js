@@ -2,11 +2,13 @@ const $ = document
 
 const imageContainer = $.querySelector('.image-container')
 const loadMoreBtn = $.querySelector('.more-img-btn')
+const searchInput = $.querySelector('.search-box input')
 
 const apiKey = '1JFcrBeutxzbXKbDXJacTLeidhb6FDb51Bi4I5Lw6D7NTgTj8p7kIxyR'
 
 const perPage = 15;
 let currentPage = 1;
+let searchTerm = null
 
 
 const generateImgElement = (imgData) => {
@@ -42,6 +44,16 @@ const loadMoreImage = () =>{
     getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
 }
 
+const loadSearchImage = e => {
+    if(e.key === 'Enter'){
+       currentPage = 1
+       searchTerm = e.target.value
+       imageContainer.innerHTML = ''
+       getImages(`https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}`)
+    }
+}
+
 
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`)
 loadMoreBtn.addEventListener('click' , loadMoreImage)
+searchInput.addEventListener('keyup' , loadSearchImage)
